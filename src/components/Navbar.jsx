@@ -1,34 +1,29 @@
+import { LuExternalLink } from "react-icons/lu";
+
 function Navbar() {
     return (
-        <nav className="bg-bearer-red shadow-md sticky top-0 z-50">
-            <div className="container mx-auto px-4">
-                <div className="flex justify-between items-center h-16">
-                    <h1 className="text-2xl font-bold text-white">My Website</h1>
-                    <ul className="flex space-x-8">
-                        <li>
-                            <a href="#about" className="text-white hover:text-gray-200 font-medium transition-colors">
-                                Sobre
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#services" className="text-white hover:text-gray-200 font-medium transition-colors">
-                                Serviços
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#contact" className="text-white hover:text-gray-200 font-medium transition-colors">
-                                Contato
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#contact" className="text-white hover:text-gray-200 font-medium transition-colors">
-                                Seus dashboards
-                            </a>
-                        </li>
-                    </ul>
+        <>
+            <nav className="navbar border border-b-3 border-b-black flex flex-col justify-center items-center">
+                <div className="navbar-container border-b-3 border-b-black flex flex-row gap-2 items-center justify-center w-full" style={{paddingTop: '1rem', paddingBottom: '1rem'}}>
+                    <img src="src/assets/bearerMinimal.svg" style={{ height: 20, width: 20}} />
+                    <strong style={{fontWeight: 750}}>bearer</strong>
                 </div>
-            </div>
-        </nav>
+                <div className="flex flex-col md:flex-row items-center md:items-left justify-center md:justify-start w-full">
+                    <ul className="flex flex-col md:flex-row gap-4 md:gap-8 lg:gap-16 xl:gap-40 w-full md:w-[80%] justify-center items-center text-center md:text-left" style={{paddingTop: 10, paddingBottom: 10, marginLeft: '0.5rem', marginRight: '0.5rem', fontWeight: 650}}>
+                        <li><a href="/features" style={{transition: 'color 0.2s ease'}} onMouseEnter={(e) => e.target.style.color = '#ff353a'} onMouseLeave={(e) => e.target.style.color = 'inherit'} className="flex flex-row items-center justify-center gap-1">Whatsapp<LuExternalLink /></a></li>
+                        <li><a href="https://www.instagram.com/bearer.io/" target="_blank" rel="noopener noreferrer" style={{transition: 'color 0.2s ease'}} onMouseEnter={(e) => e.target.style.color = '#ff353a'} onMouseLeave={(e) => e.target.style.color = 'inherit'} className="flex flex-row items-center justify-center gap-1">Instagram<LuExternalLink /></a></li>
+                        <li><a href="/about" style={{transition: 'color 0.2s ease'}} onMouseEnter={(e) => e.target.style.color = '#ff353a'} onMouseLeave={(e) => e.target.style.color = 'inherit'}>Marketing</a></li>
+                        <li><a href="/contact" style={{transition: 'color 0.2s ease'}} onMouseEnter={(e) => e.target.style.color = '#ff353a'} onMouseLeave={(e) => e.target.style.color = 'inherit'}>Planos</a></li>
+                        <li><a href="/contact" style={{transition: 'color 0.2s ease'}} onMouseEnter={(e) => e.target.style.color = '#ff353a'} onMouseLeave={(e) => e.target.style.color = 'inherit'}>Fale conosco</a></li>
+                    </ul>
+                    <a className="flex flex-1 w-full md:w-auto" href="/features">
+                        <div className="bg-bearer-red w-full h-full flex justify-center items-center border-l-0 md:border-l-3 border-l-black border-t-3 md:border-t-0 border-t-black">
+                            <p style={{fontWeight: 650, padding: '0.75rem'}} className="text-white">Acessar plataforma</p>
+                        </div>
+                    </a>
+                </div>
+            </nav>
+        </>
     )
 }
 
