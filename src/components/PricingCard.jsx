@@ -1,21 +1,19 @@
+import RedButton from "./RedButton";
+
 function PricingCard() {
     return (
         <>
-            <div className="w-[25rem] h-[30rem] border-3 flex flex-col items-center justify-center gap-16" style={{ background: 'linear-gradient(135deg, #FBF6C1 0%, #FF353A 46%, #FFFEF8 100%)' }}>
-                <div className="flex flex-col gap-4 items-center justify-center">
-                    <h5 className="font-bold text-2xl">Pacote inicial</h5>
-                    <p className="text-sm w-[10rem] text-center">O pacote perfeito para começar com suas automações</p>
+            <div className="w-full max-w-[20rem] sm:max-w-[22rem] md:max-w-[25rem] h-auto min-h-[26rem] sm:min-h-[28rem] md:h-[30rem] border-3 flex flex-col items-center justify-center gap-10 sm:gap-12 md:gap-16 py-8" style={{ background: 'linear-gradient(135deg, #FBF6C1 0%, #FF353A 46%, #FFFEF8 100%)' }}>
+                <div className="flex flex-col gap-3 sm:gap-4 items-center justify-center px-4">
+                    <h5 className="font-bold text-lg sm:text-xl md:text-2xl">Pacote inicial</h5>
+                    <p className="text-xs sm:text-sm w-[9rem] sm:w-[10rem] text-center">O pacote perfeito para começar com suas automações</p>
                 </div>
-                <div className="w-[80%] bg-white border-3 flex flex-row gap-2 font-bold items-end justify-center" style={{paddingTop: 20, paddingBottom:20}}>
-                    <p>R$</p>
-                    <p className="text-4xl">120,90</p>
-                    <p>/mês</p>
+                <div className="w-[80%] sm:w-[75%] md:w-[80%] bg-white border-3 flex flex-row gap-1 sm:gap-2 font-bold items-end justify-center py-4 sm:py-5 md:py-5">
+                    <p className="text-xs sm:text-sm md:text-base">R$</p>
+                    <p className="text-2xl sm:text-3xl md:text-4xl">120,90</p>
+                    <p className="text-xs sm:text-sm md:text-base">/mês</p>
                 </div>
-                <a className="cursor-pointer w-[50%] border-3">
-                    <div className=" bg-bearer-red text-white font-bold text-center" style={{paddingTop: 15, paddingBottom: 15}}>
-                        Assinar
-                    </div>
-                </a>
+                <RedButton text={"Assinar"}/>
             </div>
         </>
     )
