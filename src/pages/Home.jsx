@@ -59,8 +59,8 @@ function Home() {
                     </div>
                 </section>
                 <section className="relative flex flex-col items-center py-10 sm:py-16 md:py-2 px-4 sm:px-6">
-                    <img src="src/assets/star.svg" className="absolute top-8 left-4 md:left-20 w-12 h-12 md:w-16 md:h-16" alt="decoration" />
-                    <img src="src/assets/star.svg" className="absolute bottom-8 right-4 md:right-20 w-16 h-16 md:w-20 md:h-20" alt="decoration" />
+                    <img src="/star.svg" className="absolute top-8 left-4 md:left-20 w-12 h-12 md:w-16 md:h-16" alt="decoration" />
+                    <img src="/star.svg" className="absolute bottom-8 right-4 md:right-20 w-16 h-16 md:w-20 md:h-20" alt="decoration" />
                     <p className="font-bold text-base sm:text-lg mb-6 sm:mb-8 md:mb-10">O que dizem nossos clientes?</p>
                     <Carousel items={[
                         {

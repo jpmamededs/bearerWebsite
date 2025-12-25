@@ -5,7 +5,7 @@ function Navbar() {
         <>
             <nav className="navbar border border-b-3 border-b-black flex flex-col justify-center items-center">
                 <div className="navbar-container border-b-3 border-b-black flex flex-row gap-2 items-center justify-center w-full py-3 sm:py-4">
-                    <img src="src/assets/bearerMinimal.svg" className="w-5 h-5 sm:w-6 sm:h-6" />
+                    <img src="/bearerMinimal.svg" className="w-5 h-5 sm:w-6 sm:h-6" />
                     <strong className="text-base sm:text-lg" style={{fontWeight: 750}}>bearer</strong>
                 </div>
                 <div className="flex flex-col md:flex-row items-center md:items-left justify-center md:justify-start w-full">

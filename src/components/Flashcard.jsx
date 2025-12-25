@@ -10,7 +10,7 @@ function Flashcard({ numero, titulo, descricao }) {
                     <p className="text-xs sm:text-sm md:text-xs">{descricao}</p>
                 </div>
                 <div className="flex flex-row items-end justify-end h-full">
-                    <img src="src/assets/bearerMinimal.svg" className="w-4 h-4 sm:w-5 sm:h-5"/>
+                    <img src="/bearerMinimal.svg" className="w-4 h-4 sm:w-5 sm:h-5"/>
                 </div>
             </div>
         </>

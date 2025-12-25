@@ -9,7 +9,7 @@ function Footer() {
         <footer className="bg-white text-black border-t-3 border-black">
             <div className="w-full py-6 sm:py-8 px-4 sm:px-8 md:px-12 flex flex-col sm:flex-row items-center justify-between border-b-3 border-black gap-4 sm:gap-0">
                 <div className='flex flex-row gap-2 items-center'>
-                    <img src='src/assets/bearerMinimal.svg' className="w-8 h-8 sm:w-10 sm:h-10" />
+                    <img src='/bearerMinimal.svg' className="w-8 h-8 sm:w-10 sm:h-10" />
                     <p className='font-bold text-black text-2xl sm:text-3xl md:text-4xl'>bearer</p>
                 </div>
                 <div className="flex flex-row gap-2 justify-center items-center font-bold cursor-pointer hover:text-[#ff353a] transition-colors duration-200 text-sm sm:text-base" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
