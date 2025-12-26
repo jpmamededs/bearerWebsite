@@ -60,7 +60,7 @@ function Footer() {
                             <span className="text-sm">+55 (11) 96792-1313</span>
                         </div>
                         <p className="text-sm font-bold mt-2">All rights reserved to bearer @{currentYear}</p>
-                        <p className="text-xs font-bold text-bearer-red">Design por Beatriz Micucci</p>
+                        <p className="text-xs font-bold text-bearer-red">Design por Ana Beatriz Micucci</p>
                     </div>
                 </div>
             </div>
