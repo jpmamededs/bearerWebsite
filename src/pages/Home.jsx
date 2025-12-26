@@ -35,8 +35,8 @@ function Home() {
                             <p className="text-xs sm:text-sm md:text-base w-full md:w-[95%] lg:w-[25rem]">Somos uma plataforma de automação criada para simplificar processos, organizar dados e potencializar vendas. Unimos tecnologia e estratégia para transformar atendimentos em experiências eficientes, humanas e escaláveis, ajudando negócios a crescerem com mais controle e menos esforço operacional.</p>
                         </div>
                         <a>
-                            <div className="flex flex-row gap-2 items-center justify-center w-full sm:w-auto md:w-[13rem] bg-white border-3 py-3 sm:py-4 px-4 font-bold cursor-pointer hover:bg-gray-100 transition-colors">
-                                Saiba mais <LuArrowUpRight className="text-xl sm:text-2xl md:text-3xl" />
+                            <div className="group flex flex-row gap-2 items-center justify-center w-full sm:w-auto md:w-[13rem] md:hover:w-[15rem] bg-white py-3 sm:py-4 px-4 font-bold cursor-pointer transition-all duration-300 ease-in-out hover:bg-bearer-red hover:text-white" style={{ border: '3px solid black' }}>
+                                Saiba mais <LuArrowUpRight className="text-xl sm:text-2xl md:text-3xl transition-all duration-300 ease-in-out group-hover:rotate-45 group-hover:translate-x-6" />
                             </div>
                         </a>
                     </div>
