@@ -11,7 +11,12 @@ const LogoCarousel = ({ logos }) => {
           }
         }
         .animate-scroll {
-          animation: scroll 30s linear infinite;
+          animation: scroll 3s linear infinite;
+        }
+        @media (min-width: 768px) {
+          .animate-scroll {
+            animation: scroll 25s linear infinite;
+          }
         }
       `}</style>
       
