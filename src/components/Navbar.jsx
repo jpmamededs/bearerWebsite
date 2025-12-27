@@ -11,7 +11,7 @@ function Navbar() {
 
     return (
         <>
-            <nav className="navbar border border-b-3 border-b-black flex flex-col justify-center items-center">
+            <nav className="navbar border-b-3 border-b-black flex flex-col justify-center items-center">
                 <div className="navbar-container border-b-3 border-b-black flex flex-row gap-2 items-center justify-center w-full py-3 sm:py-4 relative">
                     <img src="/bearerMinimal.svg" className="w-5 h-5 sm:w-6 sm:h-6" />
                     <strong className="text-base sm:text-lg" style={{fontWeight: 750}}>bearer</strong>
@@ -42,7 +42,7 @@ function Navbar() {
                         <li><a href="/contact" style={{transition: 'color 0.2s ease'}} onMouseEnter={(e) => e.target.style.color = '#ff353a'} onMouseLeave={(e) => e.target.style.color = 'inherit'}>Planos</a></li>
                         <li><a href="/contact" style={{transition: 'color 0.2s ease'}} onMouseEnter={(e) => e.target.style.color = '#ff353a'} onMouseLeave={(e) => e.target.style.color = 'inherit'}>Fale conosco</a></li>
                     </ul>
-                    <a className="flex flex-1 w-full md:w-auto" href="/features">
+                    <a className="flex flex-1 w-full md:w-auto" href="https://dashboards.sejabearer.com.br/" target="_blank" rel="noopener noreferrer">
                         <div className="bg-bearer-red hover:bg-[#e02f34] transition-colors duration-200 w-full h-full flex justify-center items-center border-l-0 md:border-l-3 border-l-black border-t-3 md:border-t-0 border-t-black">
                             <p style={{fontWeight: 650, padding: '0.75rem'}} className="text-white">Acessar plataforma</p>
                         </div>

@@ -3,6 +3,7 @@ import { LuArrowUpRight } from "react-icons/lu";
 import RedButton from "../components/RedButton";
 import Flashcard from "../components/Flashcard";
 import Carousel from "../components/Carousel";
+import LogoCarousel from "../components/LogoCarousel";
 import Accordion from "../components/Accordion";
 import Footer from "../components/Footer";
 
@@ -20,13 +21,44 @@ function Home() {
                     </div>
                     <img src="/illustrations1.svg" className="!hidden md:!block md:mt-40 md:w-auto" style={{ height: 450, width: "auto" }} />
                 </section>
-                <section className='max-w-full w-full bg-white px-6 md:px-0 py-12 md:py-14 lg:py-20 mb-12 md:mb-14 lg:mb-20'>
+                <section className='max-w-full w-full bg-white px-6 md:px-0 py-12 md:py-14 lg:py-20'>
                     <p className="text-lg font-bold text-center md:text-left mx-auto md:mx-0 md:ml-40 mb-8 md:mb-10 lg:mb-15">Nossos planos</p>
                     <div className="flex flex-col md:flex-row items-center justify-center md:justify-between w-full gap-8 md:gap-4">
-                        <PricingCard />
-                        <PricingCard />
-                        <PricingCard />
+                        <PricingCard 
+                            title="Plano Básico" 
+                            description="O pacote perfeito para começar com suas automações" 
+                            price="124,90" 
+                        />
+                        <PricingCard 
+                            title="Plano Intermediário" 
+                            description="Ideal para empresas em crescimento que precisam de mais recursos" 
+                            price="189,90" 
+                        />
+                        <PricingCard 
+                            title="Plano Pro" 
+                            description="Solução completa para empresas que querem máxima automação" 
+                            price="249,90" 
+                        />
                     </div>
+                </section>
+                <section className='max-w-full w-full bg-white px-6 md:px-12 py-12 md:py-16 lg:py-20'>
+                    <h3 className="text-lg md:text-xl font-bold text-center mb-8 md:mb-12">Ferramentas que suportamos</h3>
+                    <LogoCarousel logos={[
+                        { name: 'WhatsApp', logo: 'https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg' },
+                        { name: 'Google Drive', logo: 'https://upload.wikimedia.org/wikipedia/commons/1/12/Google_Drive_icon_%282020%29.svg' },
+                        { name: 'Google Docs', logo: 'https://upload.wikimedia.org/wikipedia/commons/0/01/Google_Docs_logo_%282014-2020%29.svg' },
+                        { name: 'Excel', logo: 'https://upload.wikimedia.org/wikipedia/commons/3/34/Microsoft_Office_Excel_%282019%E2%80%93present%29.svg' },
+                        { name: 'Gmail', logo: 'https://upload.wikimedia.org/wikipedia/commons/7/7e/Gmail_icon_%282020%29.svg' },
+                        { name: 'Slack', logo: 'https://upload.wikimedia.org/wikipedia/commons/d/d5/Slack_icon_2019.svg' },
+                        { name: 'Trello', logo: 'https://upload.wikimedia.org/wikipedia/en/8/8c/Trello_logo.svg' },
+                        { name: 'Notion', logo: 'https://upload.wikimedia.org/wikipedia/commons/4/45/Notion_app_logo.png' },
+                        { name: 'Instagram', logo: 'https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png' },
+                        { name: 'Google Sheets', logo: 'https://upload.wikimedia.org/wikipedia/commons/3/30/Google_Sheets_logo_%282014-2020%29.svg' },
+                        { name: 'Telegram', logo: 'https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg' },
+                        { name: 'Asana', logo: 'https://upload.wikimedia.org/wikipedia/commons/3/3b/Asana_logo.svg' },
+                        { name: 'Zapier', logo: 'https://cdn.worldvectorlogo.com/logos/zapier.svg' },
+                        { name: '...e mais', logo: null },
+                    ]} />
                 </section>
                 <section className="min-h-[50vh] w-full border-t-3 border-b-3 py-8 md:py-12 lg:py-16 px-6 sm:px-8 md:px-12 lg:px-40 flex flex-col md:flex-row items-center justify-center gap-6 md:gap-8 lg:gap-12" style={{ background: 'conic-gradient(from 180deg at 50% 50%, #FF353A 0deg, rgba(255, 53, 58, 0.54) 90deg, rgba(255, 53, 58, 0.5) 180deg, rgba(255, 53, 58, 0.7) 270deg, #FF353A 360deg)' }}>
                     <div className="flex flex-col items-center md:items-start justify-start gap-6 md:gap-8 lg:gap-12 w-full lg:w-[50%] text-center md:text-left">
