@@ -1,10 +1,13 @@
 import { useState, useEffect } from 'react';
 import { IoMdClose } from 'react-icons/io';
+import subscribeService from '../services/subscribeService';
 
-function Modal({ isOpen, onClose, planName }) {
+function Modal({ isOpen, onClose, planName, planPrice }) {
     const [email, setEmail] = useState('');
     const [isSubmitted, setIsSubmitted] = useState(false);
     const [isClosing, setIsClosing] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
+    const [error, setError] = useState('');
 
     useEffect(() => {
         if (isOpen) {
@@ -17,15 +20,33 @@ function Modal({ isOpen, onClose, planName }) {
         };
     }, [isOpen]);
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         if (email && email.includes('@')) {
-            setIsSubmitted(true);
-            setTimeout(() => {
-                handleClose();
-                setIsSubmitted(false);
-                setEmail('');
-            }, 3000);
+            setIsLoading(true);
+            setError('');
+            
+            try {
+                await subscribeService.subscribeEmail({ email });
+                setIsSubmitted(true);
+                setTimeout(() => {
+                    handleClose();
+                    setIsSubmitted(false);
+                    setEmail('');
+                }, 3000);
+            } catch (err) {
+                console.error('Erro ao enviar e-mail:', err);
+                
+                if (err.code === 'ERR_NETWORK' || err.message === 'Network Error') {
+                    setError('Erro de conexão com o servidor. Por favor, tente novamente mais tarde.');
+                } else if (err.response?.status === 500) {
+                    setError('Erro no servidor. Por favor, tente novamente.');
+                } else {
+                    setError('Erro ao enviar e-mail. Tente novamente.');
+                }
+            } finally {
+                setIsLoading(false);
+            }
         }
     };
 
@@ -85,6 +106,13 @@ function Modal({ isOpen, onClose, planName }) {
                                 <h2 className="text-2xl font-bold mb-2">
                                     {planName ? `Assinar ${planName}` : 'Começar sua jornada'}
                                 </h2>
+                                {planPrice && (
+                                    <div className="mb-3 flex flex-row gap-1 font-bold items-end justify-center">
+                                        <p className="text-sm">R$</p>
+                                        <p className="text-3xl text-bearer-red">{planPrice}</p>
+                                        <p className="text-sm">/mês</p>
+                                    </div>
+                                )}
                                 <p className="text-sm text-gray-600">
                                     Digite seu e-mail para receber as instruções de pagamento
                                 </p>
@@ -106,15 +134,23 @@ function Modal({ isOpen, onClose, planName }) {
                                         onChange={(e) => setEmail(e.target.value)}
                                         placeholder="seu.email@exemplo.com"
                                         required
-                                        className="w-full px-4 py-3 border-3 border-black focus:outline-none focus:ring-2 focus:ring-bearer-red focus:border-bearer-red transition-all duration-200"
+                                        disabled={isLoading}
+                                        className="w-full px-4 py-3 border-3 border-black focus:outline-none focus:ring-2 focus:ring-bearer-red focus:border-bearer-red transition-all duration-200 disabled:bg-gray-100 disabled:cursor-not-allowed"
                                     />
                                 </div>
 
+                                {error && (
+                                    <div className="text-red-600 text-sm font-semibold text-center">
+                                        {error}
+                                    </div>
+                                )}
+
                                 <button
                                     type="submit"
-                                    className="w-full bg-bearer-red text-white font-bold py-3 px-6 border-3 border-black hover:bg-[#e02f34] transition-colors duration-200 cursor-pointer"
+                                    disabled={isLoading}
+                                    className="w-full bg-bearer-red text-white font-bold py-3 px-6 border-3 border-black hover:bg-[#e02f34] transition-colors duration-200 cursor-pointer disabled:bg-gray-400 disabled:cursor-not-allowed"
                                 >
-                                    Receber instruções
+                                    {isLoading ? 'Enviando...' : 'Receber instruções'}
                                 </button>
                             </form>
 

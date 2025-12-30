@@ -12,15 +12,18 @@ import Modal from "../components/Modal";
 function Home() {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [selectedPlan, setSelectedPlan] = useState("");
+    const [selectedPrice, setSelectedPrice] = useState("");
 
-    const handleOpenModal = (planName = "") => {
+    const handleOpenModal = (planName = "", planPrice = "") => {
         setSelectedPlan(planName);
+        setSelectedPrice(planPrice);
         setIsModalOpen(true);
     };
 
     const handleCloseModal = () => {
         setIsModalOpen(false);
         setSelectedPlan("");
+        setSelectedPrice("");
     };
 
     return (
@@ -43,19 +46,19 @@ function Home() {
                             title="Plano Básico" 
                             description="O pacote perfeito para começar com suas automações" 
                             price="124,90"
-                            onSubscribe={() => handleOpenModal("Plano Básico")}
+                            onSubscribe={() => handleOpenModal("Plano Básico", "124,90")}
                         />
                         <PricingCard 
                             title="Plano Intermediário" 
                             description="Ideal para empresas em crescimento que precisam de mais recursos" 
                             price="189,90"
-                            onSubscribe={() => handleOpenModal("Plano Intermediário")}
+                            onSubscribe={() => handleOpenModal("Plano Intermediário", "189,90")}
                         />
                         <PricingCard 
                             title="Plano Pro" 
                             description="Solução completa para empresas que querem máxima automação" 
                             price="249,90"
-                            onSubscribe={() => handleOpenModal("Plano Pro")}
+                            onSubscribe={() => handleOpenModal("Plano Pro", "249,90")}
                         />
                     </div>
                 </section>
@@ -144,6 +147,7 @@ function Home() {
                 isOpen={isModalOpen}
                 onClose={handleCloseModal}
                 planName={selectedPlan}
+                planPrice={selectedPrice}
             />
         </>
     )
