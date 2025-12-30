@@ -1,3 +1,4 @@
+import { useState } from "react";
 import PricingCard from "../components/PricingCard";
 import { LuArrowUpRight } from "react-icons/lu";
 import RedButton from "../components/RedButton";
@@ -6,8 +7,22 @@ import Carousel from "../components/Carousel";
 import LogoCarousel from "../components/LogoCarousel";
 import Accordion from "../components/Accordion";
 import Footer from "../components/Footer";
+import Modal from "../components/Modal";
 
 function Home() {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [selectedPlan, setSelectedPlan] = useState("");
+
+    const handleOpenModal = (planName = "") => {
+        setSelectedPlan(planName);
+        setIsModalOpen(true);
+    };
+
+    const handleCloseModal = () => {
+        setIsModalOpen(false);
+        setSelectedPlan("");
+    };
+
     return (
         <>
 
@@ -27,17 +42,20 @@ function Home() {
                         <PricingCard 
                             title="Plano Básico" 
                             description="O pacote perfeito para começar com suas automações" 
-                            price="124,90" 
+                            price="124,90"
+                            onSubscribe={() => handleOpenModal("Plano Básico")}
                         />
                         <PricingCard 
                             title="Plano Intermediário" 
                             description="Ideal para empresas em crescimento que precisam de mais recursos" 
-                            price="189,90" 
+                            price="189,90"
+                            onSubscribe={() => handleOpenModal("Plano Intermediário")}
                         />
                         <PricingCard 
                             title="Plano Pro" 
                             description="Solução completa para empresas que querem máxima automação" 
-                            price="249,90" 
+                            price="249,90"
+                            onSubscribe={() => handleOpenModal("Plano Pro")}
                         />
                     </div>
                 </section>
@@ -81,7 +99,7 @@ function Home() {
                                 <h1 className="font-bold text-2xl sm:text-3xl md:text-4xl w-full lg:w-[20rem]">Por que investir na bearer?</h1>
                                 <p className="text-xs sm:text-sm md:text-base w-full lg:w-[25rem]">Transformamos conversas em vendas. Centralizamos dados, automatizamos fluxos e apoiamos decisões que ajudam seu negócio a crescer de forma consistente.</p>
                             </div>
-                            <RedButton text={"Começar já"} />
+                            <RedButton text={"Começar já"} onClick={() => handleOpenModal()} />
                         </div>
                         <div className="flex flex-col lg:flex-row gap-8 sm:gap-10 md:gap-12">
                             <Flashcard numero={1} titulo="Mais eficiência, menos esforço" descricao="Automatizamos tarefas repetitivas, organizamos seus fluxos e liberamos seu tempo para focar no crescimento do negócio." />
@@ -122,6 +140,11 @@ function Home() {
                 <Footer />
             </main>
 
+            <Modal 
+                isOpen={isModalOpen}
+                onClose={handleCloseModal}
+                planName={selectedPlan}
+            />
         </>
     )
 }
