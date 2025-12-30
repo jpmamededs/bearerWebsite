@@ -162,9 +162,9 @@ function Modal({ isOpen, onClose, planName, planPrice }) {
                     ) : (
                         /* Mensagem de sucesso */
                         <div className="text-center py-8 animate-fadeIn">
-                            <div className="inline-block mb-4 p-3 bg-green-500 rounded-full">
+                            <div className="inline-block mb-4 p-4 bg-green-500 rounded-full animate-bounce">
                                 <svg
-                                    className="w-8 h-8 text-white"
+                                    className="w-10 h-10 text-white"
                                     fill="none"
                                     stroke="currentColor"
                                     viewBox="0 0 24 24"
@@ -172,14 +172,18 @@ function Modal({ isOpen, onClose, planName, planPrice }) {
                                     <path
                                         strokeLinecap="round"
                                         strokeLinejoin="round"
-                                        strokeWidth={2}
+                                        strokeWidth={3}
                                         d="M5 13l4 4L19 7"
                                     />
                                 </svg>
                             </div>
-                            <h3 className="text-xl font-bold mb-2">E-mail enviado com sucesso!</h3>
+                            <h3 className="text-2xl font-bold mb-3 text-green-600">Tudo certo!</h3>
+                            <p className="text-base text-gray-700 mb-2">
+                                Enviamos as instruções de pagamento para:
+                            </p>
+                            <p className="text-lg font-bold text-bearer-red mb-4">{email}</p>
                             <p className="text-sm text-gray-600">
-                                Verifique sua caixa de entrada em <strong>{email}</strong>
+                                Verifique sua caixa de entrada e spam. Em breve você receberá todas as informações necessárias para completar sua assinatura.
                             </p>
                         </div>
                     )}
